@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# 도매꾹 상품 목록 페이지
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 기술 스택
 
-Currently, two official plugins are available:
+- React 19 + TypeScript
+- Vite
+- Zustand
+- 순수 CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 주요 기능
 
-## React Compiler
+- 도매꾹 API 상품 목록 조회
+- 무한 스크롤 (Intersection Observer)
+- 필터 바텀 시트 (키워드 검색)
+- 로딩 스피너
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 프로젝트 구조
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── api/                  # API 호출 함수
+├── assets/icons/         # SVG 아이콘
+├── components/           # 컴포넌트 (폴더별 tsx + css)
+│   ├── Header/
+│   ├── FilterBar/
+│   ├── FilterSheet/
+│   ├── ProductItem/
+│   ├── ProductListPage/
+│   └── Spinner/
+├── constants/            # 상수
+├── hooks/                # 커스텀 훅
+├── store/                # Zustand 스토어
+├── types/                # TypeScript 타입
+└── utils/                # 유틸 함수
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 실행 방법
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 1. 의존성 설치
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+npm install
+
+### 2. 환경변수 설정
+
+루트 디렉토리에 `.env` 파일을 생성하고 아래 내용을 추가합니다.
+
+VITE*DOMEGGOOK_API_KEY=API*키
+
+### 3. 개발 서버 실행
+
+npm run dev
+
+### 4. 빌드
+
+npm run build

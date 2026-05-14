@@ -1,0 +1,30 @@
+.filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  position: sticky;
+  top: 60px;
+  z-index: 9;
+}
+
+.filter-bar__count {
+  padding: 12px 15px;
+  font-size: 14px;
+  color: #333;
+}
+
+.filter-bar__btn {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 5px;
+}
+
+.filter-bar__label {
+  font-size: 14px;
+  color: #333;
+}
