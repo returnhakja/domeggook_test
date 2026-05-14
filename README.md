@@ -44,7 +44,7 @@ npm install
 
 루트 디렉토리에 `.env` 파일을 생성하고 아래 내용을 추가합니다.
 
-VITE*DOMEGGOOK_API_KEY=API*키
+VITE_DOMEGGOOK_API_KEY=API*키
 
 ### 3. 개발 서버 실행
 
